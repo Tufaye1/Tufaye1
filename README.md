@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on gettruman.com <br>👯 I’m looking to collaborate on python automation and data modeling projects<br>🤝 I’m looking for help with understanding python deeply<br>🌱 I’m currently learning SQL and Advance Python usage <br>💬 Ask me about no code tool and automation like N8N, <br>⚡ Fun fact i am a Business undergraduate student with interest in tech and cool programming staff and i made 5 Automations tools for me using N8N.
+🔭 I’m currently working with Potato Digital <br>👯 I’m looking to collaborate on python automation and data modeling projects<br>🤝 I’m looking for help with understanding python deeply<br>🌱 I’m currently learning SQL and Advance Python usage <br>💬 Ask me about no code tool and automation like N8N, <br>⚡ Fun fact i am a Business undergraduate student with interest in tech and cool programming staff and i made 5 Automations tools for me using N8N.
 
 
 ## 🌐 Socials:
