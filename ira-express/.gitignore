@@ -1,0 +1,10 @@
+node_modules
+dist
+# Personal photos stay on your machine: this repo is public.
+photos/*
+!photos/README.md
+public/photos
+public/music.mp3
+.DS_Store
+.netlify
+.vercel

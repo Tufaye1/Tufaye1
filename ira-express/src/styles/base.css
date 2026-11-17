@@ -1,0 +1,63 @@
+:root {
+  --blush: #F6D3DC;
+  --rose: #E7A3B6;
+  --plum: #3A1730;
+  --butter: #F4CF5D;
+  --paper: #FFFBF7;
+  --plum-2: #5A2A48;
+  --pink-hot: #F09AB4;
+  --night: #120711;
+  --w: 1vw; --h: 1vh; --m: 1vmin;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --bar: clamp(36px, calc(var(--h) * 6.4), 62px);
+  --top: calc(var(--bar) + var(--safe-t));
+  --bottom: calc(var(--bar) + var(--safe-b));
+  --fr: clamp(6px, calc(var(--m) * 1.5), 16px);
+  --emoji: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
+  --hand: 'Caveat', 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', cursive, var(--emoji);
+  --body: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, var(--emoji);
+  --fs-xs: clamp(11px, calc(var(--m) * 1.55), 14px);
+  --fs-s: clamp(13px, calc(var(--m) * 1.9), 17px);
+  --fs-b: clamp(15px, calc(var(--m) * 2.3), 21px);
+  --fs-l: clamp(18px, calc(var(--m) * 3.1), 30px);
+  --fs-xl: clamp(30px, calc(var(--m) * 6), 64px);
+  --fs-hand: clamp(20px, calc(var(--m) * 3.2), 32px);
+}
+.portrait { --bar: clamp(40px, calc(var(--h) * 6), 56px); }
+.short { --bar: clamp(30px, calc(var(--h) * 8), 42px); --fs-b: 14px; --fs-hand: 19px; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--night); overscroll-behavior: none; }
+body {
+  font-family: var(--body);
+  color: var(--plum);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+#app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--night);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+img { -webkit-user-drag: none; user-select: none; }
+[hidden] { display: none !important; }
+:focus { outline: none; }
+:focus-visible { outline: 3px solid var(--butter); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

@@ -1,0 +1,103 @@
+/* Letterbox bars. --open: 0 = closed (black screen), 1 = thin cinematic bars. */
+.bar {
+  position: absolute; left: 0; right: 0; height: 50%; z-index: 60;
+  background: #0E050C; pointer-events: none; will-change: transform; --open: 0;
+}
+.bar-top { top: 0; transform: translateY(calc((-100% + var(--top)) * var(--open))); }
+.bar-bottom { bottom: 0; transform: translateY(calc((100% - var(--bottom)) * var(--open))); }
+.bar-in { position: absolute; left: 0; right: 0; height: var(--bar); display: flex; align-items: center; justify-content: center; transition: opacity 0.8s ease 0.6s; }
+.bar-top .bar-in { bottom: 0; justify-content: flex-start; padding-left: calc(var(--safe-l) + clamp(14px, calc(var(--w) * 2.6), 40px)); }
+.bar-bottom .bar-in { top: 0; }
+.is-opening .bar-in { opacity: 0; transition-delay: 0s; }
+.wordmark { font-family: var(--hand); font-weight: 700; font-size: clamp(17px, calc(var(--bar) * 0.46), 26px); color: var(--blush); opacity: 0.85; }
+
+/* Progress map */
+.map { display: flex; align-items: center; gap: clamp(10px, calc(var(--w) * 1.6), 20px); width: min(600px, 86vw); }
+.map-line { position: relative; flex: 1; height: 24px; }
+.map-rail, .map-fill { position: absolute; left: 0; right: 0; top: 50%; height: 2px; margin-top: -1px; border-radius: 2px; }
+.map-rail { background: repeating-linear-gradient(90deg, rgba(246, 211, 220, 0.35) 0 6px, transparent 6px 10px); }
+.map-fill { background: var(--rose); transform-origin: 0 50%; }
+.map-dot {
+  position: absolute; top: 50%; left: calc(var(--i) / 7 * 100%);
+  width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%;
+  background: #0E050C; border: 2px solid rgba(246, 211, 220, 0.5);
+  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+.map-dot.done { background: var(--rose); border-color: var(--rose); }
+.map-dot.next { border-color: var(--butter); }
+.map-dot.here { background: var(--butter); border-color: var(--butter); box-shadow: 0 0 0 5px rgba(244, 207, 93, 0.22); }
+.map-runner { position: absolute; inset: 0; pointer-events: none; will-change: transform; }
+.map-train { position: absolute; left: 0; top: 50%; width: 28px; transform: translate(-50%, -88%); }
+.map-train svg { display: block; width: 100%; }
+.map-label { font-family: var(--hand); font-weight: 700; color: var(--blush); font-size: clamp(17px, calc(var(--bar) * 0.42), 24px); min-width: 5.6em; white-space: nowrap; }
+.portrait .map { width: 92vw; }
+.portrait .map-label { min-width: 4.6em; font-size: 17px; }
+
+/* Music toggle */
+.music {
+  position: absolute; z-index: 80;
+  top: calc(var(--safe-t) + (var(--bar) - 36px) / 2); right: calc(var(--safe-r) + clamp(12px, calc(var(--w) * 2.4), 36px));
+  width: 36px; height: 36px; border-radius: 50%; padding: 0;
+  display: grid; place-items: center;
+  border: 1.5px solid rgba(246, 211, 220, 0.5); background: rgba(14, 5, 12, 0.6); color: var(--blush);
+}
+.music svg { width: 18px; height: 18px; }
+.music.is-on { color: var(--butter); border-color: var(--butter); }
+.music.is-on .slash { display: none; }
+.is-opening .music { top: calc(var(--safe-t) + 14px); }
+
+/* Chapter titles (movie credits) */
+.chapter {
+  position: absolute; left: 0; right: 0; top: 30%; z-index: 12; pointer-events: none; visibility: hidden;
+  display: flex; flex-direction: column; align-items: center; gap: 0.15em; text-align: center; color: var(--plum);
+}
+.ch-small { font-weight: 300; letter-spacing: 0.34em; text-indent: 0.34em; font-size: var(--fs-s); }
+.ch-big { font-family: var(--hand); font-weight: 700; font-size: clamp(46px, calc(var(--m) * 10), 112px); line-height: 1.05; }
+.ch-rule { width: 64px; height: 2px; background: currentColor; opacity: 0.45; margin-top: 0.5em; }
+.chapter:not(.on-dark) .ch-big { text-shadow: 0 2px 24px rgba(255, 251, 247, 0.85); }
+.chapter.on-dark { color: var(--paper); text-shadow: 0 2px 18px rgba(18, 7, 17, 0.5); }
+
+/* Guide (conductor) */
+.guide {
+  position: absolute; z-index: 30; pointer-events: none;
+  left: calc(var(--safe-l) + clamp(8px, calc(var(--w) * 2.2), 36px));
+  bottom: calc(var(--bottom) + clamp(4px, calc(var(--h) * 1), 14px));
+  display: flex; align-items: flex-end; gap: 6px; max-width: calc(100% - 20px);
+}
+.is-opening .guide { z-index: 75; }
+.guide-char { width: clamp(52px, calc(var(--h) * 10.5), 92px); flex: none; animation: bob 2.6s ease-in-out infinite; }
+.guide-char svg { display: block; width: 100%; height: auto; overflow: visible; }
+.cond-eyes { animation: blink 4.2s infinite; transform-origin: 50px 47px; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes blink { 0%, 94%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+.reduced .guide-char, .reduced .cond-eyes { animation: none; }
+.guide-bubble {
+  position: relative; pointer-events: auto;
+  display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.7em; row-gap: 0.4em;
+  margin-bottom: clamp(22px, calc(var(--h) * 4.6), 50px);
+  max-width: min(380px, 64vw);
+  padding: 0.6em 0.95em 0.65em; border-radius: 18px 18px 18px 5px;
+  background: var(--paper); color: var(--plum);
+  box-shadow: 0 10px 26px rgba(18, 7, 17, 0.3), 0 1px 0 rgba(58, 23, 48, 0.08);
+  transform-origin: 0 100%;
+}
+.guide-bubble::before {
+  content: ''; position: absolute; left: -7px; bottom: 6px; width: 14px; height: 14px;
+  background: var(--paper); transform: rotate(45deg); border-radius: 2px;
+}
+.guide-text { margin: 0; font-size: var(--fs-s); font-weight: 500; line-height: 1.35; }
+.guide-key {
+  display: inline-block; margin-left: -0.2em; padding: 0.05em 0.45em;
+  font-size: var(--fs-xs); font-weight: 500; border: 1.5px solid rgba(58, 23, 48, 0.35); border-radius: 6px; color: rgba(58, 23, 48, 0.7);
+}
+.guide-btn {
+  display: flex; align-items: center; gap: 0.4em;
+  padding: 0.55em 1.05em; border: 0; border-radius: 999px;
+  background: var(--plum); color: var(--paper); font-weight: 600; font-size: var(--fs-s);
+  box-shadow: 0 4px 0 #1E0A18;
+  transition: transform 0.15s;
+}
+.guide-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #1E0A18; }
+.portrait .guide-bubble { margin-bottom: 14px; max-width: calc(100vw - 96px); }
+.portrait .guide-char { width: 58px; }
+.guide.is-quiet .guide-bubble { background: rgba(255, 251, 247, 0.88); }

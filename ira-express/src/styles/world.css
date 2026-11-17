@@ -1,0 +1,68 @@
+.world { position: absolute; inset: 0; will-change: transform; transform-origin: 50% 60%; }
+.sky, .sky-l, .stars { position: absolute; inset: 0; pointer-events: none; }
+.sky-morning { background: linear-gradient(180deg, #F7CBCB 0%, #FADAD3 32%, #FDEAE1 64%, #FFF4EC 100%); }
+.sky-day { background: linear-gradient(180deg, #B6D6EE 0%, #CFE4F4 36%, #F1E2EE 70%, #FBEEF2 100%); opacity: 0; }
+.sky-golden { background: linear-gradient(180deg, #A9708F 0%, #D58FA9 24%, #EFA98F 52%, #F5C46C 76%, #F9DC93 100%); opacity: 0; }
+.sky-night { background: linear-gradient(180deg, #0B071C 0%, #190D2E 36%, #2F1438 68%, #47203F 100%); opacity: 0; }
+
+.stars { opacity: 0; visibility: hidden; }
+.stars canvas { position: absolute; left: 0; top: 0; width: 100%; }
+.stars i {
+  position: absolute; left: var(--x); top: var(--y);
+  width: 3px; height: 3px; border-radius: 50%;
+  background: #FFFBF7; box-shadow: 0 0 6px 2px rgba(255, 251, 247, 0.55);
+  animation: twinkle 2.8s var(--d) infinite ease-in-out;
+}
+@keyframes twinkle { 0%, 100% { opacity: 0.15; transform: scale(0.6); } 50% { opacity: 1; transform: scale(1.2); } }
+
+.sun, .moon { position: absolute; left: 0; top: 0; border-radius: 50%; pointer-events: none; }
+.sun {
+  width: calc(var(--m) * 12); height: calc(var(--m) * 12);
+  margin: calc(var(--m) * -6) 0 0 calc(var(--m) * -6);
+  background: radial-gradient(circle, #FFF9E6 0 55%, #FFEDB8 57% 100%);
+  box-shadow: 0 0 0 calc(var(--m) * 1.8) rgba(255, 240, 194, 0.32), 0 0 calc(var(--m) * 12) calc(var(--m) * 4) rgba(244, 207, 93, 0.32);
+}
+.sun-warm { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, #FFE8B0 0 35%, #F6A86C 100%); opacity: 0; }
+.moon {
+  width: calc(var(--m) * 8); height: calc(var(--m) * 8);
+  margin: calc(var(--m) * -4) 0 0 calc(var(--m) * -4);
+  background:
+    radial-gradient(circle at 62% 38%, rgba(214, 196, 188, 0.6) 0 9%, transparent 10%),
+    radial-gradient(circle at 40% 64%, rgba(214, 196, 188, 0.5) 0 7%, transparent 8%),
+    radial-gradient(circle at 38% 34%, #FFFCF2 0 40%, #F2E6DA 75%, #E6D4C8 100%);
+  box-shadow: 0 0 calc(var(--m) * 7) calc(var(--m) * 1.6) rgba(255, 246, 232, 0.32);
+  opacity: 0;
+}
+.land { position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; }
+.skyfx { position: absolute; left: 0; top: 0; width: 100%; height: 70%; pointer-events: none; }
+
+/* The train window: a soft pink frame around the glass. */
+.window {
+  position: absolute; z-index: 5; pointer-events: none;
+  left: calc(var(--fr) + var(--safe-l)); right: calc(var(--fr) + var(--safe-r));
+  top: calc(var(--top) + var(--fr) * 0.6); bottom: calc(var(--bottom) + var(--fr) * 0.6);
+  border-radius: calc(var(--fr) * 2.4);
+  box-shadow:
+    0 0 0 200vmax #EFC3CF,
+    inset 0 0 0 2px rgba(58, 23, 48, 0.16),
+    inset 0 calc(var(--fr) * 0.5) calc(var(--fr) * 2.5) rgba(58, 23, 48, 0.2);
+}
+.glare {
+  position: absolute; inset: 0; border-radius: inherit; overflow: hidden;
+  background:
+    radial-gradient(ellipse 85% 75% at 50% 48%, transparent 62%, rgba(18, 7, 17, 0.22) 100%),
+    linear-gradient(115deg, transparent 0 18%, rgba(255, 255, 255, 0.10) 18.5% 24%, transparent 24.5% 27%, rgba(255, 255, 255, 0.06) 27.5% 29%, transparent 29.5%);
+}
+
+.fx { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 40; pointer-events: none; }
+
+.grain {
+  position: absolute; inset: -90px; z-index: 90; pointer-events: none; opacity: 0.55;
+  animation: grain 0.8s steps(1) infinite; will-change: transform;
+}
+@keyframes grain {
+  0% { transform: translate(0, 0); } 16% { transform: translate(-40px, 22px); } 33% { transform: translate(30px, -50px); }
+  50% { transform: translate(-18px, 60px); } 66% { transform: translate(55px, 10px); } 83% { transform: translate(-62px, -28px); }
+}
+.reduced .grain { animation: none; }
+.low-power .grain { display: none; }
