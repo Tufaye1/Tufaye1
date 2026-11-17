@@ -1,6 +1,6 @@
 import { photos } from '../content.js'
 import { h, esc } from '../core/scope.js'
-import { heartDoodle } from '../art/art.js'
+import { heartDoodle, doodles } from '../art/art.js'
 
 const DIR = 'photos/'
 
@@ -13,7 +13,7 @@ export function polaroid (key, { rot = 0, cls = '', caption = true, blank = fals
   el.innerHTML = `
     ${tape === 'top' ? '<span class="tape tape-top"></span>' : '<span class="tape tape-l"></span><span class="tape tape-r"></span>'}
     <div class="ph">
-      <div class="ph-missing">${heartDoodle}</div>
+      <div class="ph-missing">${doodles[key] || heartDoodle}</div>
       <img alt="${esc(p.alt)}" decoding="async" draggable="false" style="object-position:${p.pos || '50% 40%'}">
       ${blank ? '<div class="ph-dev"></div>' : ''}
     </div>

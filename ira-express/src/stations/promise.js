@@ -47,7 +47,7 @@ export default {
       done = true
       btn.classList.add('is-done')
       btn.disabled = true
-      navigator.vibrate?.(40)
+      try { navigator.vibrate?.(40) } catch { /* not allowed here */ }
       sfx.sparkle()
       guide.hide()
       const [x, y] = at(btn)

@@ -168,3 +168,15 @@ export const lamp = `
 </svg>`
 
 export const heartDoodle = `<svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20S2 13 2 7c0-3 2-5 5-5 2 0 4 1 5 3 1-2 3-3 5-3 3 0 5 2 5 5 0 6-10 13-10 13z" fill="currentColor"/></svg>`
+
+// Drawn stand-ins for photos that are not added yet, one per photo, matching its caption.
+const D = (inner) => `<svg viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`
+export const doodles = {
+  office: D('<rect x="18" y="30" width="44" height="28" rx="3"/><path d="M12 64h56M30 64v16M58 64v16"/><path d="M70 74c4-6 12-6 16-2l2 6H70z" fill="currentColor"/><path d="M72 70l3 3M76 69l3 3"/>'),
+  sleep: D('<path d="M64 18a22 22 0 1 0 18 30 18 18 0 0 1-18-30z"/><path d="M20 30h10l-10 10h10M34 18h7l-7 7h7"/><rect x="16" y="66" width="68" height="16" rx="8"/>'),
+  river: D('<circle cx="72" cy="26" r="9"/><path d="M10 60c8-6 14-6 22 0s14 6 22 0 14-6 22 0 10 4 14 2M10 74c8-6 14-6 22 0s14 6 22 0 14-6 22 0 10 4 14 2"/><path d="M34 52h26l-5 8H39z" fill="currentColor"/><path d="M46 52V36l10 12"/>'),
+  street: D('<path d="M28 86V30M28 30c0-8 16-8 16 0"/><path d="M38 30h12l-3 8h-6z" fill="currentColor"/><path d="M44 86l12-46h6l12 46M65 50v6M66 64v8"/>'),
+  cake: D('<path d="M20 70V52h60v18zM20 52c6 6 10-6 15 0s10-6 15 0 10-6 15 0 10-6 15 0"/><path d="M16 78h68"/><path d="M50 52V38"/><path d="M50 26c4 4 4 8 0 10-4-2-4-6 0-10z" fill="currentColor"/>'),
+  conference: D('<rect x="40" y="18" width="20" height="32" rx="10"/><path d="M32 42a18 18 0 0 0 36 0M50 60v14M38 76h24"/><path d="M18 24l3 6 6 1-5 4 1 6-5-3-5 3 1-6-5-4 6-1zM80 52l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z" fill="currentColor" stroke-width="1.5"/>'),
+  hearts: D('<path d="M50 80S20 62 20 42c0-9 6-15 14-15 7 0 12 4 16 10 4-6 9-10 16-10 8 0 14 6 14 15 0 20-30 38-30 38z" fill="currentColor"/><path d="M20 18c0-3 2-5 4-5s3 1 4 3c1-2 2-3 4-3s4 2 4 5c0 5-8 10-8 10s-8-5-8-10zM70 72c0-3 2-5 4-5s3 1 4 3c1-2 2-3 4-3s4 2 4 5c0 5-8 10-8 10s-8-5-8-10z" fill="currentColor" stroke-width="1.5"/>'),
+}
