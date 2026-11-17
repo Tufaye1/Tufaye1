@@ -6,7 +6,7 @@ export const photos = {
   tongue: { src: 'tongue.jpg', caption: 'no filter', alt: 'Ira sticking her tongue out', pos: '50% 40%' },
   angry: { src: 'angry.jpg', caption: 'ragebait mode', alt: 'Ira giving her angriest look', pos: '58% 45%' },
   einstein: { src: 'einstein.png', fallback: 'einstein.jpg', alt: 'Einstein sticking his tongue out' },
-  sleep: { src: 'sleep.jpg', caption: 'evidence 👀', alt: 'Ira asleep in a very questionable posture', pos: '50% 40%' },
+  sleep: { src: 'sleep.jpg', caption: 'evidence 👀', alt: 'Ira asleep in a very questionable posture', pos: '72% 50%' },
   stress: { src: 'stress.jpg', caption: 'too many texts', alt: 'Ira stressed at her laptop', pos: '50% 34%' },
   river: { src: 'river.jpg', caption: 'river days', alt: 'Ira by the river', pos: '50% 40%' }, // caption (mine)
   street: { src: 'street.jpg', caption: 'street walks', alt: 'Ira on the street', pos: '50% 40%' }, // caption (mine)
