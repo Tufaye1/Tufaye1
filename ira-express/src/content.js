@@ -12,8 +12,8 @@ export const photos = {
   street: { src: 'street.jpg', caption: 'street walks', alt: 'Ira on the street', pos: '50% 40%' }, // caption (mine)
   cake: { src: 'cake.jpg', caption: 'cake first', alt: 'Ira with cake', pos: '50% 45%' }, // caption (mine)
   smile: { src: 'smile.jpg', caption: 'this smile', alt: 'Ira smiling with a peace sign', pos: '50% 32%' }, // caption (mine)
-  conference: { src: 'conference.jpg', caption: 'we will shine', alt: 'Ira at a conference', pos: '50% 40%' },
-  hearts: { src: 'hearts.jpg', caption: '18 November', alt: 'Ira, hearts', pos: '50% 40%' }, // caption (mine)
+  conference: { src: 'conference.jpg', caption: 'we will shine', alt: 'Ira at a conference', pos: '50% 30%' },
+  hearts: { src: 'hearts.jpg', caption: '18 November', alt: 'Ira and Tufayel Bhaia', pos: '50% 38%' }, // caption (mine)
 }
 
 export const ticket = {
